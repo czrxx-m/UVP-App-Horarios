@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101014">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Mi Horario UVP: organiza tus clases y actividades de Ingeniería en Agronomía.">
+  <meta name="application-name" content="Mi Horario UVP">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Mi Horario">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="robots" content="index, follow">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="Mi Horario UVP · Agronomía">
+  <meta property="og:description" content="Tu espacio para organizar clases, materias y actividades de Ingeniería en Agronomía.">
+  <meta property="og:type" content="website">
+  <title>Mi Horario UVP 2.0 · Agronomía</title>
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/v2.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <div id="splash" class="splash" aria-label="Cargando Mi Horario" role="status">
+    <div class="splash-art" aria-hidden="true"></div>
+    <div class="splash-brand">
+      <img class="splash-uvp-logo" src="assets/uvp-symbol.png" alt="" width="132" height="160" fetchpriority="high">
+      <p class="splash-kicker">UNIVERSIDAD DEL VALLE DE PUEBLA</p>
+      <h1>Mi Horario<span>.</span></h1>
+      <p class="splash-subtitle">Cultiva tu semana.</p>
+      <div class="splash-loader"><span></span></div>
+      <p class="splash-loading">Preparando tu espacio</p>
+    </div>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand-lockup" href="#inicio" data-view-link="inicio" aria-label="Mi Horario UVP, inicio">
+        <img class="brand-mark-image" src="assets/uvp-symbol.png" alt="" width="42" height="48">
+        <span class="brand-copy"><strong>mi horario<span>.</span></strong><small>UVP · AGRONOMÍA</small></span>
+      </a>
+      <div class="sidebar-label">TU ESPACIO</div>
+      <nav class="main-nav">
+        <button class="nav-item is-active" type="button" data-view="inicio"><span class="nav-icon" data-icon="home"></span><span>Inicio</span><span class="nav-active-mark"></span></button>
+        <button class="nav-item" type="button" data-view="semana"><span class="nav-icon" data-icon="calendar"></span><span>Horario semanal</span><span class="nav-active-mark"></span></button>
+        <button class="nav-item" type="button" data-view="materias"><span class="nav-icon" data-icon="search"></span><span>Mis materias</span><span class="nav-active-mark"></span></button>
+        <button class="nav-item" type="button" data-view="mas"><span class="nav-icon" data-icon="settings"></span><span>Más herramientas</span><span class="nav-active-mark"></span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <div class="note-spark">✳</div>
+          <p>Pequeños pasos.<br><strong>Grandes cosechas.</strong></p>
+          <span class="note-leaf" aria-hidden="true"></span>
+        </div>
+        <div class="offline-status"><span class="status-dot"></span><span id="connection-label">Lista para tu día</span></div>
+        <div class="sidebar-footer">MI HORARIO <span id="footer-year"></span></div>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="topbar-context"><span class="topbar-spark" aria-hidden="true">✳</span><span id="topbar-date">TU ESPACIO ACADÉMICO</span></div>
+        <div class="topbar-actions">
+          <span class="semester-chip"><span class="semester-dot"></span><span id="semester-label">Primer semestre</span></span>
+          <button id="install-button" class="install-button" type="button" hidden><span data-icon="download"></span> Instalar app</button>
+        </div>
+      </header>
+
+      <main id="main-content" tabindex="-1">
+        <section class="view is-visible" id="view-inicio" aria-labelledby="welcome-title">
+          <div class="welcome-row">
+            <div class="welcome-copy">
+              <p class="eyebrow"><span class="eyebrow-line"></span> TU SEMANA, BIEN CULTIVADA</p>
+              <h1 id="welcome-title">Hola, <em>vamos a organizar</em><br>el día<span class="title-dot">.</span></h1>
+              <p class="welcome-date" id="welcome-date">Tu agenda de hoy, sin complicaciones.</p>
+            </div>
+            <div class="welcome-sticker" aria-hidden="true"><span class="sticker-ring"></span><img src="assets/uvp-symbol.png" alt="" width="78" height="94"><span class="sticker-star">✳</span></div>
+          </div>
+
+          <div class="home-grid">
+            <section class="feature-card" aria-labelledby="feature-label">
+              <div class="feature-texture" aria-hidden="true"></div>
+              <div class="feature-topline"><span class="feature-label" id="feature-label"><span class="live-dot"></span> <span id="feature-state">TU PRÓXIMA CLASE</span></span><span class="feature-day" id="feature-day">HOY</span></div>
+              <div id="featured-class" class="featured-class" aria-live="polite"></div>
+              <div id="feature-context" class="feature-context" hidden></div>
+              <div class="feature-bottom"><div class="feature-progress"><span id="feature-progress-fill"></span></div><span id="feature-footnote">TU AGENDA, A UN VISTAZO</span></div>
+            </section>
+
+            <section class="day-panel panel" aria-labelledby="day-panel-title">
+              <div class="panel-heading"><div><p class="eyebrow">EN POCAS PALABRAS</p><h2 id="day-panel-title">Tu día</h2></div><span class="heading-icon" data-icon="sun"></span></div>
+              <div id="day-stats" class="day-stats"></div>
+              <div class="day-panel-bottom"><span class="mini-orbit" aria-hidden="true">✳</span><p id="day-panel-message">Haz espacio para aprender y respirar.</p></div>
+            </section>
+          </div>
+
+          <section class="quick-actions" aria-label="Accesos rápidos">
+            <button class="quick-action" type="button" data-view="semana"><span class="quick-action-icon" data-icon="calendar"></span><span><strong>Ver semana</strong><small>Planifica tus días</small></span><span class="quick-action-arrow" aria-hidden="true">↗</span></button>
+            <button class="quick-action" type="button" data-view="materias"><span class="quick-action-icon" data-icon="search"></span><span><strong>Buscar materia</strong><small>Salón, profesor o día</small></span><span class="quick-action-arrow" aria-hidden="true">↗</span></button>
+            <button class="quick-action" type="button" data-view="mas"><span class="quick-action-icon" data-icon="sparkles"></span><span><strong>Herramientas</strong><small>Exportar y personalizar</small></span><span class="quick-action-arrow" aria-hidden="true">↗</span></button>
+          </section>
+
+          <section class="agenda-section" aria-labelledby="agenda-title">
+            <div class="section-heading"><div><p class="eyebrow">PASO A PASO</p><h2 id="agenda-title">La agenda de hoy<span class="title-dot">.</span></h2></div><button class="text-link" type="button" data-view="semana">Ver semana <span aria-hidden="true">↗</span></button></div>
+            <div id="today-agenda" class="agenda-list"></div>
+          </section>
+
+          <section class="bottom-banner" aria-label="Frase de inspiración">
+            <div class="banner-copy"><span class="banner-mark">✳</span><p>Todo lo que aprendes hoy<br>echa raíces para mañana.</p><span class="banner-small">MI HORARIO · UVP</span></div>
+            <div class="banner-landscape" aria-hidden="true"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-semana" aria-labelledby="week-title" hidden>
+          <div class="page-intro"><p class="eyebrow"><span class="eyebrow-line"></span> PLANIFICA CON CALMA</p><h1 id="week-title">Tu semana<span class="title-dot">.</span></h1><p>Todo en su lugar. Elige un día para revisar sus clases y actividades.</p></div>
+          <div class="week-shell panel">
+            <div class="week-toolbar"><div><span class="toolbar-caption">VISTA SEMANAL</span><h2 id="week-selected-name">Lunes</h2></div><button class="today-button" id="go-today" type="button"><span data-icon="calendar-check"></span> Volver a hoy</button></div>
+            <div class="day-picker" id="day-picker" role="group" aria-label="Seleccionar día"></div>
+            <div class="week-summary" id="week-summary"></div>
+            <div id="week-agenda" class="week-agenda"></div>
+          </div>
+          <div class="week-note"><span data-icon="leaf"></span><p><strong>Tip para la semana</strong><br>Guarda unos minutos entre clases para cambiar de salón sin prisas.</p></div>
+        </section>
+
+        <section class="view" id="view-materias" aria-labelledby="subjects-title" hidden>
+          <div class="page-intro"><p class="eyebrow"><span class="eyebrow-line"></span> TU MAPA ACADÉMICO</p><h1>Mis materias<span class="title-dot">.</span></h1><p>Encuentra una clase por nombre, profesor, día o salón.</p></div>
+          <div class="subject-search panel"><span class="search-large" data-icon="search"></span><label class="sr-only" for="subject-search-input">Buscar materias, profesores, salones o días</label><input id="subject-search-input" type="search" autocomplete="off" placeholder="Prueba “Química”, “Edgar” o “martes”…"><kbd>Buscar</kbd></div>
+          <div class="subject-controls"><p id="subject-count" aria-live="polite">Materias del semestre</p><div class="subject-filters" id="subject-filters"><button class="filter-chip is-selected" type="button" data-filter="all">Todas</button><button class="filter-chip" type="button" data-filter="class">Clases</button><button class="filter-chip" type="button" data-filter="activity">Actividades</button><button class="filter-chip" type="button" data-filter="favorites">★ Favoritas</button></div></div>
+          <div id="subject-grid" class="subject-grid"></div>
+          <div class="catalog-note"><span class="catalog-symbol">✳</span><p>¿Cambió tu semestre? Las materias se actualizan desde <code>data/horario.js</code> sin modificar esta pantalla.</p></div>
+        </section>
+
+        <section class="view" id="view-mas" aria-labelledby="more-title" hidden>
+          <div class="page-intro more-intro"><p class="eyebrow"><span class="eyebrow-line"></span> TU APP, A TU MANERA</p><h1 id="more-title">Más herramientas<span class="title-dot">.</span></h1><p>Atajos prácticos para llevar tu horario contigo, con o sin conexión.</p></div>
+          <section class="more-hero panel" aria-label="Información de la aplicación">
+            <div class="more-hero-copy"><span class="version-pill"><span></span> VERSIÓN 2.0</span><h2>Organiza el tiempo.<br><em>Cultiva tu camino.</em></h2><p>Tu horario vive en este dispositivo. Sin cuenta, sin anuncios y sin enviar tus materias a un servidor.</p><div class="more-hero-tags"><span><i></i> Funciona sin conexión</span><span><i></i> Datos locales</span></div></div>
+            <div class="more-hero-art" aria-hidden="true"><img src="assets/uvp-symbol.png" alt="" width="180" height="220"><span class="hero-orbit orbit-one"></span><span class="hero-orbit orbit-two"></span></div>
+          </section>
+
+          <section class="tool-section" aria-labelledby="tools-title"><div class="section-heading"><div><p class="eyebrow">HECHAS PARA AHORRARTE TIEMPO</p><h2 id="tools-title">Tus herramientas<span class="title-dot">.</span></h2></div></div>
+            <div class="tool-grid">
+              <button class="tool-card" type="button" id="export-calendar-button"><span class="tool-icon tool-icon-gold" data-icon="download"></span><span class="tool-card-copy"><strong>Exportar calendario</strong><small>Descarga 4 semanas en .ics para Google Calendar o Apple Calendar.</small></span><span class="tool-arrow" aria-hidden="true">↗</span></button>
+              <button class="tool-card" type="button" id="print-schedule-button"><span class="tool-icon tool-icon-red" data-icon="print"></span><span class="tool-card-copy"><strong>Imprimir horario</strong><small>Vista limpia de los siete días, lista para guardar o imprimir.</small></span><span class="tool-arrow" aria-hidden="true">↗</span></button>
+              <button class="tool-card" type="button" id="share-app-button"><span class="tool-icon tool-icon-leaf" data-icon="share"></span><span class="tool-card-copy"><strong>Compartir la app</strong><small>Envía el enlace a tu otro dispositivo o a un compañero.</small></span><span class="tool-arrow" aria-hidden="true">↗</span></button>
+              <button class="tool-card" type="button" id="copy-today-button"><span class="tool-icon tool-icon-violet" data-icon="copy"></span><span class="tool-card-copy"><strong>Copiar horario de hoy</strong><small>Un resumen en texto con las horas, salones y profesores.</small></span><span class="tool-arrow" aria-hidden="true">↗</span></button>
+            </div>
+          </section>
+
+          <section class="tool-section preferences-section" aria-labelledby="preferences-title"><div class="section-heading"><div><p class="eyebrow">COMODIDAD VISUAL</p><h2 id="preferences-title">Personaliza tu espacio<span class="title-dot">.</span></h2></div></div>
+            <div class="preferences-card panel">
+              <label class="preference-row" for="pref-contrast"><span class="preference-icon" data-icon="contrast"></span><span class="preference-copy"><strong>Contraste reforzado</strong><small>Resalta los bordes y el texto para leer con más claridad.</small></span><input id="pref-contrast" class="preference-switch" type="checkbox"><span class="switch-ui" aria-hidden="true"></span></label>
+              <label class="preference-row" for="pref-motion"><span class="preference-icon" data-icon="motion"></span><span class="preference-copy"><strong>Reducir animaciones</strong><small>Limita las transiciones y los efectos de movimiento.</small></span><input id="pref-motion" class="preference-switch" type="checkbox"><span class="switch-ui" aria-hidden="true"></span></label>
+              <div class="preference-row preference-actions"><span class="preference-icon" data-icon="refresh"></span><span class="preference-copy"><strong>Comprobar actualización</strong><small>Busca una versión nueva de la app desde GitHub Pages.</small></span><button id="check-updates-button" class="secondary-button" type="button">Comprobar</button></div>
+            </div>
+          </section>
+
+          <section class="about-grid" aria-label="Información de Mi Horario UVP">
+            <article class="about-card panel"><span class="about-card-icon" data-icon="book"></span><p class="eyebrow">TU SEMESTRE</p><h3 id="more-semester">Primer semestre</h3><p><span id="more-subject-count">0 materias</span><span class="about-separator">·</span><span id="more-session-count">0 sesiones semanales</span></p><button type="button" class="text-link" data-view="materias">Ver mis materias <span aria-hidden="true">↗</span></button></article>
+            <article class="about-card about-card-logo panel"><img src="assets/uvp-symbol.png" alt="Símbolo de la UVP" width="72" height="88"><div><p class="eyebrow">IDENTIDAD UNIVERSITARIA</p><h3>UVP · Agronomía</h3><p>Mi Horario es una herramienta personal de organización académica, no una aplicación oficial de la universidad.</p></div></article>
+          </section>
+        </section>
+
+      </main>
+
+      <footer class="main-footer"><span><span class="footer-flower">✳</span> Hecho para acompañarte, clase a clase.</span><span>UVP · INGENIERÍA EN AGRONOMÍA</span></footer>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Navegación inferior">
+    <button type="button" class="mobile-nav-item is-active" data-view="inicio"><span data-icon="home"></span><small>Inicio</small></button>
+    <button type="button" class="mobile-nav-item" data-view="semana"><span data-icon="calendar"></span><small>Semana</small></button>
+    <button type="button" class="mobile-nav-item" data-view="materias"><span data-icon="search"></span><small>Materias</small></button>
+    <button type="button" class="mobile-nav-item" data-view="mas"><span data-icon="settings"></span><small>Más</small></button>
+  </nav>
+  <section id="print-sheet" class="print-sheet" aria-label="Horario semanal para imprimir" hidden></section>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/horario.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/schedule.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
