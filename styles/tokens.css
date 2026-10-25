@@ -1,0 +1,29 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d0d11;
+  --bg-soft: #121218;
+  --surface: #17171f;
+  --surface-2: #1c1c25;
+  --surface-3: #24242d;
+  --line: rgba(246, 242, 233, .10);
+  --line-strong: rgba(246, 242, 233, .18);
+  --text: #f4f0e7;
+  --muted: #aaa7b0;
+  --quiet: #777680;
+  --red: #ff3e68;
+  --red-deep: #8f203e;
+  --yellow: #f2d56c;
+  --leaf: #97bc7b;
+  --cream: #ede4d4;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-xl: 32px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, .22);
+  --sans: "DM Sans", "Montserrat", system-ui, sans-serif;
+  --display: "Montserrat", "DM Sans", system-ui, sans-serif;
+  --serif: "DM Serif Display", Georgia, serif;
+  --sidebar-width: 252px;
+  --content-max: 1180px;
+  --ease: cubic-bezier(.2, .75, .25, 1);
+}
